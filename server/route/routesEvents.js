@@ -1,6 +1,6 @@
 const express= require("express");
 const router= express.Router()
-const {allEvents,EventsById,postEvents,deleteEvents,modifierEvents}=require("../controller/controller.js")
+const {allEvents,EventsById,postEvents,deleteEvents,modifierEvents}=require("../controller/controllerEvents.js")
 
 
 router.get("/allEvents",allEvents)
