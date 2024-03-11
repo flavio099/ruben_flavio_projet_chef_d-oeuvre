@@ -1,11 +1,13 @@
 const express = require('express');
 const app = express();
 const port = 3000
-const router = require("./route/routes.js")
+const Evenements = require("./route/routesEvents.js")
+const authentification= require('./route/routesAuthentification.js')
 app.use(express.json())
 
-app.use(router)
 
+app.use(authentification)
+app.use(Evenements)
 
 
 app.listen(port, () => {
