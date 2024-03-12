@@ -2,6 +2,9 @@ const {publicKey,privateKey}=require('./private_public_Key')
 const Events=require("./Events.js")
 const users = require('./users.js')
 const jwt=require('jsonwebtoken')
+const joi=require('joi')
+
+
 
 
 const getallUsers= (req,res)=>{
@@ -9,8 +12,22 @@ const getallUsers= (req,res)=>{
 }
 
 const inscription= (req,res)=>{
-   users.push(req.body)
-   res.send("utilisateur créé avec succès")
+
+   const userschema= joi.object({
+      name: joi.string().alphanum().min(3).max(30).required(),
+      password: joi.string().pattern(new RegExp('^[a-zA-Z0-9]{3,30}$'))
+   })
+   
+   const { error } = userschema.validate(req.body);
+   if(error){
+      res.send("veillez respecter le format demander")
+   }else{
+    
+      users.push(req.body)
+      res.send("utilisateur créé avec succès")
+   }
+  
+  
 }
 
 
@@ -44,4 +61,4 @@ const auth=(req,res)=>{
      
    }
 
-   module.exports={auth,token_checkout,inscription,getallUsers}
+   module.exports={auth,token_checkout,inscription,getallUsers}  
