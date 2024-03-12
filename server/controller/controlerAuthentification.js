@@ -3,6 +3,18 @@ const Events=require("./Events.js")
 const users = require('./users.js')
 const jwt=require('jsonwebtoken')
 
+
+const getallUsers= (req,res)=>{
+   res.send(users)
+}
+
+const inscription= (req,res)=>{
+   users.push(req.body)
+   res.send("utilisateur créé avec succès")
+}
+
+
+
 const auth=(req,res)=>{
 
     const {name,password}= req.body
@@ -32,4 +44,4 @@ const auth=(req,res)=>{
      
    }
 
-   module.exports={auth,token_checkout}
+   module.exports={auth,token_checkout,inscription,getallUsers}
