@@ -7,6 +7,7 @@ const joi=require('joi')
 
 
 
+
 const getallUsers= (req,res)=>{
    res.send(users)
 }
