@@ -8,42 +8,42 @@ const prisma= new PrismaClient()
 app.use(express.json())
 
 
-async function main() {
-  await prisma.user.create({
-    data: {
-      prenom:"ruben", 
-      nom:"lubasa",         
-      email:"lubasaruben@gmail.com" ,    
-      password:"ruben099865422" ,
-      genre :"masculin"    
-    }
-  })
+// async function main() {
+//   await prisma.user.create({
+//     data: {
+//       prenom:"greg", 
+//       nom:"kakoka",         
+//       email:"kakokagreg@gmail1.com" ,    
+//       password:"kakoka099865422" ,
+//       genre :"masculin"    
+//     }
+//   })
 
 
-  const allUsers = await prisma.user.findMany()
+//   const allUsers = await prisma.user.findMany()
 
-  console.log(allUsers);
+//   console.log(allUsers);
  
- }
+//  }
  
  
- main()
+//  main()
  
-   .then(async () => {
+//    .then(async () => {
  
-     await prisma.$disconnect()
+//      await prisma.$disconnect()
  
-   })
+//    })
  
-   .catch(async (e) => {
+//    .catch(async (e) => {
  
-     console.error(e)
+//      console.error(e)
  
-     await prisma.$disconnect()
+//      await prisma.$disconnect()
  
-     process.exit(1)
+//      process.exit(1)
  
-   })
+//    })
 
 app.use(authentification)
 app.use(Evenements)
