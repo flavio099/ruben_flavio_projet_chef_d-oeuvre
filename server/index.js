@@ -1,49 +1,13 @@
 const express = require('express');
 const app = express();
-const port = 3000
+const port = 8000
 const Evenements = require("./route/routesEvents.js")
 const authentification= require('./route/routesAuthentification.js')
-const {PrismaClient}=require('@prisma/client')
-const prisma= new PrismaClient()
+// const {PrismaClient}=require('@prisma/client')
+// const prisma= new PrismaClient()
+// const bcrypt= require('bcrypt')
 app.use(express.json())
 
-
-// async function main() {
-//   await prisma.user.create({
-//     data: {
-//       prenom:"greg", 
-//       nom:"kakoka",         
-//       email:"kakokagreg@gmail1.com" ,    
-//       password:"kakoka099865422" ,
-//       genre :"masculin"    
-//     }
-//   })
-
-
-//   const allUsers = await prisma.user.findMany()
-
-//   console.log(allUsers);
- 
-//  }
- 
- 
-//  main()
- 
-//    .then(async () => {
- 
-//      await prisma.$disconnect()
- 
-//    })
- 
-//    .catch(async (e) => {
- 
-//      console.error(e)
- 
-//      await prisma.$disconnect()
- 
-//      process.exit(1)
- 
-//    })
 
 app.use(authentification)
 app.use(Evenements)
