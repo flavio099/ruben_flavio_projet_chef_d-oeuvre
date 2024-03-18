@@ -1,31 +1,116 @@
-const Events=require("./Events.js")
+const {PrismaClient}=require('@prisma/client')
+const prisma= new PrismaClient()
+const joi=require('joi')
 
-const allEvents=(req,res)=>{res.send(Events)}
+const allEvents= async (req,res)=>{
 
-const EventsById=(req,res)=>{
-       const ID = parseInt(req.params.id)
-    
-       res.send(Events.filter((e)=>{
-          return e.id==ID
-       }))
+   try{
+     const getallEvents= await prisma.Event.findMany()
+     res.send(getallEvents);
+   }
+   catch(error){
+
+   res.send(error)
+
+   }
+}
+
+const EventsById=  async (req,res)=>{
+   try{
+      const ID = parseInt(req.params.id)
+     
+      if(isNaN(ID)){
+         res.send( "événement "+ ID + " introuvable")
+      }else{
+         const eventSeacrh = await prisma.Event.findUnique({
+            where:{
+               id:ID
+            }
+         })
+         res.send(eventSeacrh)
+      }
+   }
+   catch(error){
+      
+      res.send(error)
+   }
     }
 
-const postEvents=(req,res)=>{
-       const addEvent= req.body
-       Events.push(addEvent)
-       res.send("Event ajouté avec succès")
+const postEvents= async (req,res)=>{
+   try{
+       const {nom,categorie,date,lieu,heure } = req.body
+       const dateIso8601 = new Date(date).toISOString();
+       const Evenements={
+         nom,
+         categorie,
+         date:dateIso8601,
+         lieu ,
+         heure
+      }
+      
+         const userschema = joi.object({
+
+            nom: joi.string().required(),
+            categorie:joi.string().alphanum().min(3).max(30).required(),
+            date: joi.string().pattern(new RegExp("^([0-9]{4})-([0-9]{1,2})-([0-9]{1,2})$")).required(),
+            lieu :joi.string().required(),
+            heure:joi.string().alphanum().required()
+
+            // pattern(new RegExp(/^([a-zA-Z0-9]{5}):([a-zA-Z0-9]{3})$/)).required()
+            // .pattern(new RegExp("^([0-9]{4})-([0-9]{1,2})-([0-9]{1,2})$"))
+         })
+
+         
+const { error } = userschema.validate(req.body);
+if(error){
+  
+   res.send("veillez respecter le format demander")
+}
+else{
+
+ await prisma.Event.create({
+   data:Evenements
+})
+  res.send(Evenements.nom  + "  a été crée avec succès comme événemnt") 
+}
+ }
+   catch (error) {
+   
+      res.send(error)
+     
+   }
+}
+
+const deleteEvents= async (req,res)=>{
+   try{
+      const ID = parseInt(req.params.id)
+     const  removeEvent= await prisma.Event.delete({
+         where:{
+            id:ID
+         }
+      })
+      res.send(removeEvent)
+   }
+   catch (error) {
+      res.send(error)
+   }
+      
     }
 
-const deleteEvents= (req,res)=>{
-       const ID = parseInt(req.params.id)
-       Events.splice(ID-1,1)
-       res.send("Event avec supprimé succès")
-    }
-
-const modifierEvents= (req,res)=>{
-       const ID = req.params.id
-       Events.splice(ID-1,1,req.body)
-       res.send("Event modifié  avec succès")
+const modifierEvents= async (req,res)=>{
+   const id = parseInt(req.params.id)
+   try{
+     const bodyOfEvenTomodif=req.body
+     const eventModif = await prisma.Event.update({
+      where:{id},
+      data:bodyOfEvenTomodif 
+     })
+     res.send("Event " + eventModif.nom + " a été modifié  avec succès")
+   }
+   catch (error) {
+   
+       res.send(error)
+   } 
     } 
 
     module.exports={allEvents,EventsById,postEvents,deleteEvents,modifierEvents}

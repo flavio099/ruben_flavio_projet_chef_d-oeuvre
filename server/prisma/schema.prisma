@@ -9,31 +9,71 @@ generator client {
 }
 
 datasource db {
-   provider = "mysql"
+  provider = "mysql"
   url      = env("DATABASE_URL")
 }
 
 
-
 model User {
-  id        Int      @id @default(autoincrement())
-  nom       String?
-  prenom    String?
-  email     String   @unique
-  password  String
-  genre     String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  
+id Int @id @default(autoincrement())
+prenom String?
+nom String?
+email String @unique
+password String
+genre String
+createdAt DateTime @default(now())
+updatedAt DateTime @updatedAt
+
+// events Participer[]
+// ticket Ticket @relation(fields: [ticketId],references: [id])
+// ticketId Int @default(0)
 }
 
-// model  Ticket{
-//   id        Int      @id @default(autoincrement())
-//   categorie    String?
-//   prix      Int
-//   nbre_de_billet   Int
-  
- 
+// model Participer{
+
+// user User @relation(fields: [userId],references: [id])
+// userId Int 
+// event Event @relation(fields: [eventId],references: [id])
+// eventId Int 
+// @@id([userId, eventId])
 // }
 
+model Event {
 
+id Int @id @default(autoincrement())
+nom String
+categorie String
+date DateTime
+lieu String
+heure String
+// users Participer[]
+// promoteurs Promoteur[]
+// ticket Ticket @relation(fields: [ticketId],references: [id])
+// ticketId Int
+
+}
+
+model Promoteur {
+
+id Int @id @default(autoincrement())
+nom String
+nrenom String
+email String
+genre String
+numtelph Int
+nbr_bill_dispo Int
+// event Event @relation(fields: [eventId],references: [id])
+// eventId Int
+
+}
+
+model Ticket{
+
+id Int @id @default(autoincrement())
+categorie String
+prix Int
+nbr_bill_acheter Int
+// users User[]
+// events Event[]
+
+}
