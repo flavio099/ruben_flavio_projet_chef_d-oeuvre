@@ -101,7 +101,7 @@ const inscription = async (req, res) => {
 
    } catch (error) {
      console.error(error);
-     res.send("Une erreur s'est produite lors de votre inscription");
+   //   res.send("Une erreur s'est produite lors de votre inscription");
    }
  };
  
