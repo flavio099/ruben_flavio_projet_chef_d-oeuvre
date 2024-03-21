@@ -87,6 +87,7 @@ const inscription = async (req, res) => {
      const motDePasseHaché = await bcrypt.hash(password, salt);
  
      // Création de l'utilisateur avec le mot de passe haché
+
      const utilisateur = await prisma.user.create({
        data: {
          prenom,
@@ -100,8 +101,8 @@ const inscription = async (req, res) => {
      res.send(utilisateur.prenom + " - " + utilisateur.nom + " votre inscription a été effectuée avec succès");
 
    } catch (error) {
-     console.error(error);
-   //   res.send("Une erreur s'est produite lors de votre inscription");
+    console.log(error);
+    //  res.send("Une erreur s'est produite lors de votre inscription");
    }
  };
  
