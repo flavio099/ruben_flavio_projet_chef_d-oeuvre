@@ -66,3 +66,7 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+.imgt{
+  width: 200px;
+  height: 200px;
+}
