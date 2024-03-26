@@ -67,16 +67,27 @@ form.sign-in-form {
 }
 
 .input-field {
+  display: flex;
+  /* flex-direction:; */
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f0f0; 
+  gap:10px;
   max-width: 380px;
-  width: 100%;
-  background-color: #f0f0f0;
-  margin: 10px 0;
+  width: 80%;
   height: 55px;
   border-radius: 55px;
-  display: grid;
+  margin: 10px 0;
+  /* max-width: 380px;
+  width: 100%;
+  background-color: #f0f0f0; 
+  /* margin: 10px 0;
+  height: 55px;
+  border-radius: 55px; */
+  /* display: grid;
   grid-template-columns: 15% 85%;
   padding: 0 0.4rem;
-  position: relative;
+  position: relative; */
 }
 
 .input-field i {
@@ -401,4 +412,52 @@ p {
     bottom: 28%;
     left: 50%;
   }
+}
+
+.container-inscription{
+  display: flex;
+  /* justify-content: center;
+  align-items: center; */
+  width: 100%;
+  background-color: #fff;
+  position:relative;
+}
+.container-form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  width: 50%;
+ 
+}
+
+.inscription-form{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+}
+
+.inscription-img{
+  width: 50%;
+}
+
+.inscription-img-text{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 40px;
+  height: 30%;
+  width: 100%;
+}
+
+.inscription-container-img{
+  height: 70%;
+}
+
+.inscription-container-img-img{
+  width: 100%;
+  height: 80%;
 }

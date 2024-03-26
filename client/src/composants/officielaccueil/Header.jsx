@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 
 function Header() {
     return (
@@ -5,14 +6,14 @@ function Header() {
 
             <a href="#" className="logo"><span>Lushi-</span>Events</a>
             <nav className="navbar">
-                <a href="#Acceuil">Acceuil</a>
-                <a href="#service">Service</a>
-                <a href="#À propos">À propos</a>
-                <a href="#gallerie">Gallerie</a>
-                <a href="#prix">Prix</a>
-                <a href="#revue">Revue</a>
-                <a href="#contact">Contact</a>
-                <a href="#connexion">Connexion</a>
+                <NavLink to='/'>Acceuil</NavLink>
+                <NavLink to='Services'>Services</NavLink>
+                <NavLink to='Gallerie'>Gallerie</NavLink>
+                <NavLink to='Evénéments'>Evénéments</NavLink>
+                <NavLink to='ServiceClient'>Service client</NavLink>
+                <NavLink to='Àpropos'>À propos</NavLink>
+                <NavLink to="Inscription">Inscription</NavLink>
+                <NavLink to="Connexion">Connexion</NavLink>
             </nav>
             <div id="menu-bars" className="fas fa-bars"></div>
 
@@ -21,3 +22,4 @@ function Header() {
 }
 
 export default Header;
+

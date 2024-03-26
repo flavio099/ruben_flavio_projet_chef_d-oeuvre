@@ -47,10 +47,10 @@ function Footer() {
 
         <div className="box">
           <h3>Suivez-nous</h3>
-          {/* <a href="#"> <FontAwesomeIcon icon={faFacebookF} /> Facebook </a>
-          <a href="#"> <FontAwesomeIcon icon={faTwitter} /> Twitter </a>
-          <a href="#"> <FontAwesomeIcon icon={faInstagram} /> Instagram </a>
-          <a href="#"> <FontAwesomeIcon icon={faLinkedinIn} /> LinkedIn </a> */}
+          <a href="#">  Facebook </a>
+          <a href="#">  Twitter </a>
+          <a href="#"> Instagram </a>
+          <a href="#"> LinkedIn </a>
         </div>
       </div>
 

@@ -1,7 +1,8 @@
 import React from 'react';
-
+import PriceSection from './PriceSection';
 function AboutSection() {
     return (
+        <>
         <section className="about" id="about">
             <h1 className="heading"><span>À propos</span> de nous</h1>
 
@@ -18,6 +19,9 @@ function AboutSection() {
                 </div>
             </div>
         </section>
+      <PriceSection></PriceSection>
+        </>
+       
     );
 }
 

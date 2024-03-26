@@ -1,5 +1,6 @@
 import React from 'react';
 
+import './officiel.css'
 function GallerySection() {
     return (
         <section className="gallery" id="gallery">
@@ -106,6 +107,56 @@ function GallerySection() {
                     </div>
                 </div>
 
+
+                <div className="box">
+                    <img src="src/composants/officielaccueil/img/images (5).jpeg" alt="" />
+                    <h3 className="title">meilleurs evenements</h3>
+                    <div className="icons">
+                        <a href="#" className="fas fa-heart"></a>
+                        <a href="#" className="fas fa-share"></a>
+                        <a href="#" className="fas fa-eye"></a>
+                    </div>
+                </div>
+
+                <div className="box">
+                    <img src="src/composants/officielaccueil/img/FB_IMG_17091215360155966.jpg" alt="" />
+                    <h3 className="title">meilleurs evenements</h3>
+                    <div className="icons">
+                        <a href="#" className="fas fa-heart"></a>
+                        <a href="#" className="fas fa-share"></a>
+                        <a href="#" className="fas fa-eye"></a>
+                    </div>
+                </div>
+
+                <div className="box">
+                    <img src="src/composants/officielaccueil/img/Messe_Luzern_Corporate_Event.jpg" alt="" />
+                    <h3 className="title">meilleurs evenements</h3>
+                    <div className="icons">
+                        <a href="#" className="fas fa-heart"></a>
+                        <a href="#" className="fas fa-share"></a>
+                        <a href="#" className="fas fa-eye"></a>
+                    </div>
+                </div>
+
+                <div className="box">
+                    <img src="src/composants/officielaccueil/img/images (5).jpeg" alt="" />
+                    <h3 className="title">meilleurs evenements</h3>
+                    <div className="icons">
+                        <a href="#" className="fas fa-heart"></a>
+                        <a href="#" className="fas fa-share"></a>
+                        <a href="#" className="fas fa-eye"></a>
+                    </div>
+                </div>
+
+                <div className="box">
+                    <img src="src/composants/officielaccueil/img/FB_IMG_17091215360155966.jpg" alt="" />
+                    <h3 className="title">meilleurs evenements</h3>
+                    <div className="icons">
+                        <a href="#" className="fas fa-heart"></a>
+                        <a href="#" className="fas fa-share"></a>
+                        <a href="#" className="fas fa-eye"></a>
+                    </div>
+                </div>
                 {/* Continue with other gallery items similarly */}
             </div>
         </section>

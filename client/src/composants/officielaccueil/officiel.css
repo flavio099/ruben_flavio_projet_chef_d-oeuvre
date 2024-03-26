@@ -26,7 +26,7 @@ html {
 }
 
 body {
-  background: #222;
+  background:#222;
 }
 
 section {
@@ -39,7 +39,7 @@ section {
   left: 0;
   right: 0;
   z-index: 10000;
-  background: #333;
+  background: #111;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -63,7 +63,16 @@ section {
 }
 
 .header .navbar a:hover {
-  color: var(--theme-color);
+  color: white;
+}
+
+.header a.active{
+padding: 10px;  
+text-decoration: none;
+border-bottom: 2px solid var(--theme-color);
+background-color: var(--theme-color);
+font-weight: bolder;
+width: 200px;
 }
 
 #menu-bars {
@@ -145,6 +154,7 @@ section {
 
 
 .heading {
+  margin-top: 100px;
   text-align: center;
   padding-bottom: 2rem;
   color: #fff;
@@ -158,16 +168,22 @@ section {
 }
 
 .service .box-container {
-  display: grid;
+  display: flex;
+  
+  /* display: grid; */
   grid-template-columns: repeat(auto-fit, minmax(27rem, 1fr));
-  gap: 1.5rem;
+  gap:10px;
+ 
+  margin-bottom:50px;
+
 }
 
 .service .box-container .box {
   border-radius: 0.5rem;
   background: #333;
   text-align: center;
-  padding: 2.5rem;
+  width: 20%;
+  padding:20px;
 }
 
 .service .box-container .box i {
@@ -239,6 +255,7 @@ section {
 }
 
 .gallery .box-container .box {
+  /* display: flex; */
   position: relative;
   border: 1rem solid #333;
   border-radius: 0.5rem;
@@ -316,7 +333,7 @@ section {
 }
 
 .price .box-container .box:hover {
-  transform: scale(1.03);
+  transform: scale(1.1);
 }
 
 .price .box-container .box .title {
@@ -481,6 +498,7 @@ section {
 .footer .box-container .box a:hover i {
   padding-right: 1.5rem;
   color: #fff;
+ 
 }
 
 .footer .credit {
@@ -495,6 +513,7 @@ section {
 
 .footer .credit span {
   color: var(--theme-color);
+  
 }
 
 html::-webkit-scrollbar {

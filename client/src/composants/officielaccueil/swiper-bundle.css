@@ -1,4 +1,9 @@
 /* Style général pour le conteneur de Swiper */
+
+body{
+  background-color: #222222;
+}
+
 .swiper-container {
     
     width: 100%; /* La largeur du conteneur prend toute la largeur disponible */
