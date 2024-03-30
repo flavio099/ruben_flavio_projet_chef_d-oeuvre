@@ -21,7 +21,7 @@ function ContactSection() {
                     cols="30"
                     rows="10"
                 ></textarea>
-                <input type="submit" value="envoyer le message" className="btn" />
+                <input type="submit" value="envoyer le message" className="btn-home" />
             </form>
         </section>
     );

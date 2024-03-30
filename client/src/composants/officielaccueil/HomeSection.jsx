@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
-import Swiper from 'swiper'; // Importer Swiper
-import 'swiper/swiper-bundle.css'; // Importer le fichier CSS Swiper
+import Swiper from 'swiper'; 
+import 'swiper/swiper-bundle.css'; 
 import { useNavigate } from 'react-router-dom';
 function HomeSection() {
     const navigate = useNavigate
     useEffect(() => {
-        // Initialisation de Swiper dans useEffect pour garantir que cela se produit après le rendu du composant
+        
         const homeSwiper = new Swiper('.home-slider', {
             direction: 'horizontal', // Définir la direction sur horizontal
             loop: true, // Activer la lecture en boucle
@@ -24,7 +24,7 @@ function HomeSection() {
         <section className="home" id="home">
             <div className="content">
                 <h3>Bienvenue sur Lushi-Events, la plateforme N°1 qui simplifie l'organisation et l'accès aux événements  en RDC ! </h3>
-                <button className="btn" onClick={()=>navigate('Service client') }>obtenir un devis</button>
+                <button className="btn-home" onClick={()=>navigate('Service client') }>obtenir un devis</button>
             </div>
 
             <div className="swiper-container home-slider">

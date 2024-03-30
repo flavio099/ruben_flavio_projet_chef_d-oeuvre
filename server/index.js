@@ -5,7 +5,11 @@ const port = 8000
 const Evenements = require("./route/routesEvents.js")
 const authentification= require('./route/routesAuthentification.js')
 
-app.use(cors({ origin: 'http://localhost:5173' }));
+app.use(cors({ 
+   origin: 'http://localhost:5173',
+   methods:['GET','POST'],
+   allowedHeaders:['content-type','Authorization'] 
+}));
 app.use(express.json())
 
 

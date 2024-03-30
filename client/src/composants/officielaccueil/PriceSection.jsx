@@ -16,7 +16,7 @@ function PriceSection() {
                         <li><i className="fas fa-check"></i> Nourriture et boissons</li>
                         <li><i className="fas fa-check"></i> invitation numerique</li>
                     </ul>
-                    <a href="#" className="btn">vérifier</a>
+                    <a href="#" className="btn-home">vérifier</a>
                 </div>
 
                 <div className="box">
@@ -29,7 +29,7 @@ function PriceSection() {
                         <li><i className="fas fa-check"></i> Nourriture et boissons</li>
                         <li><i className="fas fa-check"></i> invitation numerique</li>
                     </ul>
-                    <a href="#" className="btn">vérifier</a>
+                    <a href="#" className="btn-home">vérifier</a>
                 </div>
 
                 <div className="box">
@@ -42,7 +42,7 @@ function PriceSection() {
                         <li><i className="fas fa-check"></i> Nourriture et boissons</li>
                         <li><i className="fas fa-check"></i> invitation numerique</li>
                     </ul>
-                    <a href="#" className="btn">vérifier</a>
+                    <a href="#" className="btn-home">vérifier</a>
                 </div>
 
                 <div className="box">
@@ -55,7 +55,7 @@ function PriceSection() {
                         <li><i className="fas fa-check"></i> Nourriture et boissons</li>
                         <li><i className="fas fa-check"></i> invitation numerique</li>
                     </ul>
-                    <a href="#" className="btn">vérifier</a>
+                    <a href="#" className="btn-home">vérifier</a>
                 </div>
             </div>
         </section>

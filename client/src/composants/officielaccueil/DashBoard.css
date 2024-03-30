@@ -1,0 +1,39 @@
+body{
+   margin: 0;
+   padding: 0;
+   background-color:#222;
+}
+p{
+    font-size: 20px;
+}
+.DashBoard{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px; 
+    width: 1800px;
+    height: 900px;
+
+}
+
+.form-field-dash{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 60%;
+}
+.input-field-dash{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:50%;
+    height:50px;
+    padding:20px;
+    background-color:orange;
+    font-size: 15px;
+    font-weight: bold;
+    color: black;
+}

@@ -65,83 +65,102 @@ const upDateUsers= async (req,res)=>{
    }
 }
 const inscription = async (req, res) => {
-   try {
-     // Extraction et validation des données de l'utilisateur depuis le corps de la requête
-     const { prenom, nom, email, password, genre } = req.body;
- 
-     const schemaUtilisateur = joi.object({
-       nom: joi.string().alphanum().min(3).max(30).required(),
-       prenom: joi.string().alphanum().min(3).max(30).required(),
-       email: joi.string().pattern(new RegExp(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@([a-zA-Z0-9]{1,63}\.)+[a-zA-Z]{2,6}$/)).required(),
-       password: joi.string().pattern(new RegExp('^[a-zA-Z0-9]{3,30}$')).required(),
-       genre: joi.string().alphanum().required(),
-     });
- 
-     const { error } = schemaUtilisateur.validate(req.body);
-     if (error) {
-       return res.send("Veuillez respecter le format demandé");
-     }
- 
-     // Hachage sécurisé du mot de passe avant de créer l'utilisateur
-     const cost = 10; // Ajuster le coût si nécessaire (plus élevé pour un hachage plus fort)
-     const salt = await bcrypt.genSalt(cost);
-     const motDePasseHaché = await bcrypt.hash(password, salt);
- 
-     // Création de l'utilisateur avec le mot de passe haché
+  try {
+   
+    const { prenom, nom, email, password, genre } = req.body;
 
-     const utilisateur = await prisma.user.create({
-       data: {
-         prenom,
-         nom,
-         email,
-         password: motDePasseHaché, 
-         genre,
-       },
-     });
- 
-     res.send(utilisateur.prenom + " - " + utilisateur.nom + " votre inscription a été effectuée avec succès");
+    const schemaUtilisateur = joi.object({
+      nom: joi.string().alphanum().min(3).max(30).required().label('nom'),
+      prenom: joi.string().alphanum().min(3).max(30).required().label('prenom'),
+      email: joi.string().pattern(new RegExp(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@([a-zA-Z0-9]{1,63}\.)+[a-zA-Z]{2,6}$/)).required().label('email'),
+      password: joi.string().pattern(new RegExp('^[a-zA-Z0-9]{3,30}$')).required().label('password'),
+      genre: joi.string().alphanum().required().label('Gender'),
+  });
 
-   } catch (error) {
-    console.log(error);
-    //  res.send("Une erreur s'est produite lors de votre inscription");
-   }
- };
- 
+    
+const { error, value } = schemaUtilisateur.validate(req.body, { abortEarly: false });
 
- const connexion = async (req, res) => {
-   try {
-     const { email, password } = req.body;
- 
-     // Recherche de l'utilisateur par adresse e-mail
-     const user = await prisma.User.findUnique({
-       where: { email },
-     });
- 
-     if (!user) {
-       return res.send("Veuillez vérifier vos coordonnées");
-     }
+if (error) {
+    const errorMessage = error.details.map(err => {
+        return {
+            field: err.context.label,
+            message: err.message
+        };
+    });
+    return res.status(400).json({ error: errorMessage });
+}
 
-     const estLeMotDePasseValide = await bcrypt.compare(password, user.password);
- 
-     if (!estLeMotDePasseValide) {
-       return res.send("Mot de passe incorrect");
-     }
- 
-     const recupertaion_token = req.headers.authorization;
-  
-     if (recupertaion_token) {
-       return res.status(401).send("Non autorisé");
-     }
- 
-     const token = jwt.sign({ email }, privateKey, { algorithm: 'RS256' });
- 
-     res.send(user.prenom + " - " + user.nom + "  bienvenue sur Easy_Ticket");
-   } catch (error) {
-     console.error(error);
-     res.status(500).send("Une erreur s'est produite");
-   }
- };
- 
+   
+    const cost = 10; 
+    const salt = await bcrypt.genSalt(cost);
+    const motDePasseHaché = await bcrypt.hash(password, salt);
+
+   
+    const utilisateur = await prisma.user.create({
+      data: {
+        prenom,
+        nom,
+        email,
+        password: motDePasseHaché, 
+        genre,
+      },
+    });
+
+    
+    res.status(200).json({ message: utilisateur.prenom + " - " + utilisateur.nom + " votre inscription a été effectuée avec succès" });
+
+  } catch (error) {
+    res.status(500).json({ message: "Une erreur s'est produite lors de votre inscription" });
+  }
+};
+
+
+const connexion = async (req, res) => {
+  const { prenom, nom, email, password, genre } = req.body;
+  const cost = 10; 
+  const salt = await bcrypt.genSalt(cost);
+  const motDePasseHaché = await bcrypt.hash(password, salt);
+  try {
+    const { email, password } = req.body;
+
+    const user = await prisma.User.findUnique({
+      where: { email },
+    });
+
+    if (!user) {
+      return res.status(400).send("Veuillez vérifier vos coordonnées");
+    }
+    else{
+
+      const login = await prisma.login.create({
+        data: {
+          email,
+          password:motDePasseHaché, 
+        }
+        
+      })
+    }
+
+    const estLeMotDePasseValide = await bcrypt.compare(password, user.password);
+
+    if (!estLeMotDePasseValide) {
+      return res.status(400).send("Mot de passe incorrect");
+    }
+
+    const recupertaion_token = req.headers.authorization;
+
+    if (recupertaion_token) {
+      return res.status(401).send("Non autorisé");
+    }
+
+    const token = jwt.sign({ email }, privateKey, { algorithm: 'RS256' });
+
+    res.status(200).json({ message: "Bienvenue sur Lushi-Event", token });
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Une erreur s'est produite");
+  }
+};
 
  
 

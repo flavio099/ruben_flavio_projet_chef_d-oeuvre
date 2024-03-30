@@ -1,5 +1,5 @@
 import React from "react"
-// import Header from "./Header"
+
 import HomeSection from "./HomeSection"
 import ServiceSection from "./ServiceSection"
 import AboutSection from "./AboutSection"
@@ -7,7 +7,6 @@ import GallerySection from "./GallerySection"
 import PriceSection from "./PriceSection"
 import ReviewSection from "./ReviewSection"
 import ContactSection from "./ContactSection"
-
 import './officiel.css'
 
 function AccueilLushiEvent(){

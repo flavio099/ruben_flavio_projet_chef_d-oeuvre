@@ -14,24 +14,28 @@ import ServiveClient from './composants/officielaccueil/serviceClient';
 import Inscription from './composants/inscription_connexion/Inscription';
 import './composants/officielaccueil/officiel.css'
 import './composants/inscription_connexion/inscrip_conex.css'
+// import  './composants/officielaccueil/DashBoard.css'
+// import DashBoard from './composants/officielaccueil/DashBoard';
 function App(){
   return (
     <div>
       <Header></Header>
 
       <Routes>
-       <Route path='/' element={ <AccueilLushiEvent/>}></Route>
+       <Route path='/AccueilLushiEvent' element={ <AccueilLushiEvent/>}></Route>
        <Route path='/Services' element={ <ServiceSection/>}></Route>
        <Route path='/Gallerie' element={ <GallerySection/>}></Route>
        <Route path='/Àpropos'  element={ <AboutSection/>}></Route>
        <Route path='/Evénéments' element={ <Events/>}></Route>
        <Route path ='/ServiceClient' element={<ServiveClient/>} ></Route>
-       <Route path ='/Inscription' element={<Inscription/>} ></Route>
+       <Route path ='/' element={<Inscription/>} ></Route>
        <Route path='/connexion'  element={<Connexion/>} ></Route>
+       {/* <Route path="/DashBoard"  element = {<DashBoard/>} ></Route> */}
       </Routes>
 
       <ThemeToggler></ThemeToggler>
       <Footer></Footer>
+     
     </div>
   );
 }

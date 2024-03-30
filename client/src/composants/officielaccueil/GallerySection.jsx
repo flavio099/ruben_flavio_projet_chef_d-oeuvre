@@ -1,5 +1,4 @@
 import React from 'react';
-
 import './officiel.css'
 function GallerySection() {
     return (
@@ -157,7 +156,7 @@ function GallerySection() {
                         <a href="#" className="fas fa-eye"></a>
                     </div>
                 </div>
-                {/* Continue with other gallery items similarly */}
+            
             </div>
         </section>
     );

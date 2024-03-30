@@ -111,20 +111,23 @@ width: 200px;
   width:1500px;
   height: 400px;
 }
-
+.home .content h3:hover{
+  transform: scale(0.8);
+ 
+}
 .home .content h3 span {
   color: var(--theme-color);
   text-transform:none;
 }
 
 
-.btn {
+.btn-home{
   margin-top: 1rem;
   display:flex;
   justify-content: center;
   align-items: center;
-  padding: 0.8rem 3rem;
   width: 200px;
+  height: 40px;
   font-size: 1.5rem;
   border-radius: 0.5rem;
   background: #e9dddd;
@@ -133,9 +136,10 @@ width: 200px;
   font-weight: 600;
 }
 
-.btn:hover {
+.btn-home:hover {
   background: var(--theme-color);
   color: #fff;
+  border-color: var(--theme-color);
 }
 
 .home .home-slider .swiper-slide {
@@ -169,13 +173,10 @@ width: 200px;
 
 .service .box-container {
   display: flex;
-  
-  /* display: grid; */
   grid-template-columns: repeat(auto-fit, minmax(27rem, 1fr));
   gap:10px;
- 
-  margin-bottom:50px;
-
+  margin-top:50px;
+  margin-bottom:50px; 
 }
 
 .service .box-container .box {
@@ -185,7 +186,10 @@ width: 200px;
   width: 20%;
   padding:20px;
 }
+.box:hover{
+  transform: scale(1.2);
 
+}
 .service .box-container .box i {
   height: 6rem;
   width: 6rem;
