@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE `Event` MODIFY `prix` VARCHAR(191) NOT NULL;

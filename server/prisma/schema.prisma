@@ -21,13 +21,20 @@ nom String?
 email String @unique
 password String
 genre String
+role Role @default(ordinaire)
 createdAt DateTime @default(now())
 updatedAt DateTime @updatedAt
 
+}
+
+enum Role{
+  admin
+  ordinaire
+}
 // events Participer[]
 // ticket Ticket @relation(fields: [ticketId],references: [id])
 // ticketId Int @default(0)
-}
+
 
 // model Participer{
 
@@ -51,11 +58,16 @@ model Login{
 model Event {
 
 id Int @id @default(autoincrement())
-nom String
-categorie String
-date DateTime
+image   String
+promoName String
 lieu String
+prix String
+adresse String
+date DateTime
+nomEvent String
 heure String
+createdAt DateTime @default(now())
+updatedAt DateTime @updatedAt
 // users Participer[]
 // promoteurs Promoteur[]
 // ticket Ticket @relation(fields: [ticketId],references: [id])

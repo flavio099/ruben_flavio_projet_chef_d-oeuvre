@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate} from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faVenusMars, faUser, faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons';
 
 const Inscription = () => {
+   
     const [formData, setFormData] = useState({
         nom: '',
         prenom: '',
@@ -68,7 +69,7 @@ const Inscription = () => {
         });
         
     }
-
+     
     return (
         <div className='container-inscription'>
             <div className='container-form'>
@@ -103,7 +104,7 @@ const Inscription = () => {
                         </select>
                     </div>
                    
-                    <button type="submit" className="btn-transparent">S'inscrire</button>
+                  <button type="submit" className="btn-transparent" onClick={()=> navigate("/Connexion")} >S'inscrire</button>   
                 </form>
                 <div className="social-media">
                     <a href="#" className="social-icon">
@@ -130,6 +131,7 @@ const Inscription = () => {
                     <img className='inscription-container-img-img' src="src/composants/inscription_connexion/imgInscrip_connex/Social media-cuate.svg" alt="imageInscription" />
                 </div>
             </div>
+         
         </div>
     );
 }

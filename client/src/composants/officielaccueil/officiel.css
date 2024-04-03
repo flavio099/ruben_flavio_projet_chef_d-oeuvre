@@ -473,12 +473,14 @@ width: 200px;
 
 .footer {
   background: #111;
+  width: 1840px;
 }
 
 .footer .box-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
   gap: 1.5rem;
+  
 }
 
 .footer .box-container .box h3 {
@@ -488,7 +490,7 @@ width: 200px;
 }
 
 .footer .box-container .box a {
-  display: block;
+  display: block;  width: 100%;
   font-size: 1.5rem;
   padding: 1rem 0;
   color: #eee;

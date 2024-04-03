@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons';
+
 
 function Connexion() {
     const [email, setEmail] = useState('');
@@ -13,13 +14,11 @@ function Connexion() {
     const handleLogin = (e) => {
         e.preventDefault();
 
-        // Vérifier si tous les champs sont remplis
         if (!email || !password) {
             setErrorMessage('Veuillez remplir tous les champs.');
             return;
         }
 
-        // Envoyer la requête au serveur
         fetch('http://localhost:8000/connexion', {
             method: 'POST',
             headers: {
@@ -35,7 +34,7 @@ function Connexion() {
         })
         .then(data => {
             setSuccessMessage('Connexion réussie!');
-           Navigate('/AccueilLushiEvent')
+            Navigate('/AccueilLushiEvent')
           
         })
         .catch(error => {
@@ -45,7 +44,9 @@ function Connexion() {
                 setErrorMessage('');
             }, 3000);
         });
-    };
+    }
+
+    const navigate = useNavigate()
 
     return (
         <div className='container-inscription'>
@@ -83,7 +84,7 @@ function Connexion() {
                 <div className="inscription-img-text">
                     <h3>Nouveau ici?</h3>
                     <p>Prêt à rejoindre notre communauté ? Inscrivez-vous dès maintenant pour profiter de tous les avantages exclusifs réservés à nos membres. Créez votre compte en quelques clics et plongez dans une expérience unique. Rejoignez-nous dès aujourd'hui et commencez à explorer un monde de possibilités !</p>
-                    <button className="btn-transparent" id="sign-up-btn">S'inscrire</button>
+                    <button className="btn-transparent"  id="sign-up-btn" onClick={()=>navigate(-1)} >S'inscrire</button>
                 </div>
                 <div className='inscription-container-img'>
                     <img className='inscription-container-img-img' src="src/composants/inscription_connexion/imgInscrip_connex/vecteezy_isometric-style-illustration-of-login-to-website_6552114.svg"  alt="imageInscription" />
