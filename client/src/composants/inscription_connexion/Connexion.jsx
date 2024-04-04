@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom'; // Import correct
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons';
-
 
 function Connexion() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
     const [successMessage, setSuccessMessage] = useState('');
-    const Navigate= useNavigate();
+    const navigate = useNavigate(); // Ajoutez les parenthèses ici pour obtenir la fonction de navigation
 
     const handleLogin = (e) => {
         e.preventDefault();
@@ -33,9 +32,12 @@ function Connexion() {
             return response.json();
         })
         .then(data => {
-            setSuccessMessage('Connexion réussie!');
-            Navigate('/AccueilLushiEvent')
+            setSuccessMessage('Connexion réussie , vous serez redirigé vers la page d\accueil dans 5 secondes ');
           
+            setTimeout(() => {
+                setSuccessMessage('');
+                navigate("/AccueilLushiEvent");
+            }, 5000)
         })
         .catch(error => {
             console.error('There has been a problem with your fetch operation:', error);
@@ -45,8 +47,6 @@ function Connexion() {
             }, 3000);
         });
     }
-
-    const navigate = useNavigate()
 
     return (
         <div className='container-inscription'>
@@ -84,7 +84,7 @@ function Connexion() {
                 <div className="inscription-img-text">
                     <h3>Nouveau ici?</h3>
                     <p>Prêt à rejoindre notre communauté ? Inscrivez-vous dès maintenant pour profiter de tous les avantages exclusifs réservés à nos membres. Créez votre compte en quelques clics et plongez dans une expérience unique. Rejoignez-nous dès aujourd'hui et commencez à explorer un monde de possibilités !</p>
-                    <button className="btn-transparent"  id="sign-up-btn" onClick={()=>navigate(-1)} >S'inscrire</button>
+                    <Link to="/"> <button className="btn-transparent"  id="sign-up-btn">S'inscrire</button></Link> 
                 </div>
                 <div className='inscription-container-img'>
                     <img className='inscription-container-img-img' src="src/composants/inscription_connexion/imgInscrip_connex/vecteezy_isometric-style-illustration-of-login-to-website_6552114.svg"  alt="imageInscription" />

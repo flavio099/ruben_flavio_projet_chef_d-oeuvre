@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import Swiper from 'swiper'; 
 import 'swiper/swiper-bundle.css'; 
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 function HomeSection() {
-    const navigate = useNavigate
+  
     useEffect(() => {
         
         const homeSwiper = new Swiper('.home-slider', {
@@ -24,7 +24,7 @@ function HomeSection() {
         <section className="home" id="home">
             <div className="content">
                 <h3>Bienvenue sur Lushi-Events, la plateforme N°1 qui simplifie l'organisation et l'accès aux événements  en RDC ! </h3>
-                <button className="btn-home" onClick={()=>navigate('Service client') }>obtenir un devis</button>
+                <Link to="/ServiceClient"><button className="btn-home" >obtenir un devis</button></Link>    
             </div>
 
             <div className="swiper-container home-slider">

@@ -56,7 +56,7 @@ const Events = () => {
                             </div>
                         </div>
                        
-                        <Link to="/Paiement"><button className="action">ACHETEZ SON BILLET</button> </Link>
+                        <Link to="/Paiement"><button className="action">ACHETEZ SON BILLET</button></Link>
                     </div>
                 </div>
             ))}

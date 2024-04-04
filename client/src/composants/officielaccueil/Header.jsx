@@ -8,7 +8,7 @@ function Header() {
             <nav className="navbar">
                 <NavLink to='AccueilLushiEvent'>Acceuil</NavLink>
                 <NavLink to='Services'>Services</NavLink>
-                <NavLink to='Gallerie'>Gallerie</NavLink>
+                <NavLink to='Gallerie'>Gallérie</NavLink>
                 <NavLink to='Evénéments'>Événements</NavLink>
                 <NavLink to='ServiceClient'>Service client</NavLink>
                 <NavLink to='Àpropos'>À propos</NavLink>

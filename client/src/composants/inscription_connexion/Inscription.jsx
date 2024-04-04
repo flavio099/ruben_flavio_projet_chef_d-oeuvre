@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate} from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faVenusMars, faUser, faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons';
-
+import { Link } from 'react-router-dom';
 const Inscription = () => {
    
     const [formData, setFormData] = useState({
@@ -104,7 +104,7 @@ const Inscription = () => {
                         </select>
                     </div>
                    
-                  <button type="submit" className="btn-transparent" onClick={()=> navigate("/Connexion")} >S'inscrire</button>   
+                 <button type="submit" className="btn-transparent" >S'inscrire</button> 
                 </form>
                 <div className="social-media">
                     <a href="#" className="social-icon">
@@ -125,7 +125,7 @@ const Inscription = () => {
                 <div className="inscription-img-text">
                     <h3>Un de nous?</h3>
                     <p>Connectez-vous pour accéder à un monde d'opportunités et de fonctionnalités exclusives ! Rejoignez notre communauté en toute simplicité en vous connectant dès maintenant. Votre expérience personnalisée vous attend. Sign in pour commencer l'aventure !</p>
-                    <button className="btn-transparent" id="sign-in-btn">Se connecter</button>
+                   <Link to="/Connexion"> <button className="btn-transparent" id="sign-in-btn">Se connecter</button></Link> 
                 </div>
                 <div className='inscription-container-img'>
                     <img className='inscription-container-img-img' src="src/composants/inscription_connexion/imgInscrip_connex/Social media-cuate.svg" alt="imageInscription" />

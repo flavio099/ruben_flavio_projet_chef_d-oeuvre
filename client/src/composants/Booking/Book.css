@@ -136,6 +136,7 @@ body {
     left: 50%;
     transform: translateX(-50%);
     width: 60%;
+    height: 12%;
     outline: none;
     cursor: pointer;
     padding: 12px;

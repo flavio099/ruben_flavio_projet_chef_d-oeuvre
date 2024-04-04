@@ -1,4 +1,4 @@
-import React from 'react';
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faMapMarkerAlt, faArrowRight, faPhone, faEnvelope } from '@fortawesome/free-solid-svg-icons';
@@ -25,13 +25,14 @@ function Footer() {
 
         <div className="box">
           <h3>Liens rapides</h3>
-          <a href="#"> <FontAwesomeIcon icon={faArrowRight} style={{ color:'var(--theme-color)'}}/> Accueil </a>
-          <a href="#"> <FontAwesomeIcon icon={faArrowRight} style={{ color:'var(--theme-color)'}}/> Service </a>
-          <a href="#"> <FontAwesomeIcon icon={faArrowRight} style={{ color:'var(--theme-color)'}}/> À propos </a>
-          <a href="#"> <FontAwesomeIcon icon={faArrowRight} style={{ color:'var(--theme-color)'}}/> Galerie </a>
-          <a href="#"> <FontAwesomeIcon icon={faArrowRight} style={{ color:'var(--theme-color)'}}/> Prix </a>
-          <a href="#"> <FontAwesomeIcon icon={faArrowRight} style={{ color:'var(--theme-color)'}}/> Avis </a>
-          <a href="#"> <FontAwesomeIcon icon={faArrowRight} style={{ color:'var(--theme-color)'}}/> Contact </a>
+          <Link to="/AccueilLushiEvent"><FontAwesomeIcon icon={faArrowRight} style={{ color:'var(--theme-color)'}}/> Accueil </Link>
+          <Link to="/Services"><FontAwesomeIcon icon={faArrowRight} style={{ color:'var(--theme-color)'}}/> Services </Link>
+          <Link to="/Gallerie"><FontAwesomeIcon icon={faArrowRight} style={{ color:'var(--theme-color)'}}/> Gallérie </Link>
+          <Link to ="/Evénéments"><FontAwesomeIcon icon={faArrowRight} style={{ color:'var(--theme-color)'}}/> Événements</Link>
+          <Link to="/ServiceClient"> <FontAwesomeIcon icon={faArrowRight} style={{ color:'var(--theme-color)'}}/> Service client</Link> 
+          <Link to="/Àpropos"> <FontAwesomeIcon icon={faArrowRight} style={{ color:'var(--theme-color)'}}/> À propos</Link>
+          <Link to="/"><FontAwesomeIcon icon={faArrowRight} style={{ color:'var(--theme-color)'}}/> Inscription </Link>   
+          <Link to="/Connexion"><FontAwesomeIcon icon={faArrowRight} style={{ color:'var(--theme-color)'}}/> Connexion</Link>   
         </div>
 
         <div className="box">
