@@ -3,7 +3,6 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './officiel.css'
-// Ajouter toutes les icônes solides à la bibliothèque Font Awesome
 library.add(fas);
 
 function ServiceSection() {
@@ -13,7 +12,7 @@ function ServiceSection() {
 
             <div className="box-container">
                 <div className="box">
-                    {/* Utilisation d'une icône spécifique */}
+                    
                     <FontAwesomeIcon icon={['fas','envelope']}  style={{ color:'var(--theme-color)'}} />
                     <h3>invitation numérique</h3>
                     <p>Oubliez les tracas des invitations papier !Avec Luhi-Events, passez au numérique et profitez d'une solution simple, rapide et économique . <br/>  <b>Passez à l'ère numérique dès aujourd'hui et profitez de tous les avantages des invitations Luhi-Events !</b> </p>

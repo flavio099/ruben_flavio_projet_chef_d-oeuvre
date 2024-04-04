@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom'; // Import correct
+import { Link, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons';
 
@@ -8,7 +8,7 @@ function Connexion() {
     const [password, setPassword] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
     const [successMessage, setSuccessMessage] = useState('');
-    const navigate = useNavigate(); // Ajoutez les parenthèses ici pour obtenir la fonction de navigation
+    const navigate = useNavigate();
 
     const handleLogin = (e) => {
         e.preventDefault();

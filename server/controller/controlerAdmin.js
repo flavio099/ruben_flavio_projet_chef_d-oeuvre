@@ -58,8 +58,7 @@ const getAllAdmins= async (req,res)=>{
 
     try{
       const getAllAdministrateur= await prisma.user.findMany(
-        // where :role
-        // // data:role
+       
       )
 
       res.status(200).send(getAllAdministrateur)

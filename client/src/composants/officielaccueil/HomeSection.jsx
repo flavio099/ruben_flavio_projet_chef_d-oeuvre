@@ -7,18 +7,16 @@ function HomeSection() {
     useEffect(() => {
         
         const homeSwiper = new Swiper('.home-slider', {
-            direction: 'horizontal', // Définir la direction sur horizontal
-            loop: true, // Activer la lecture en boucle
-            slidesPerView:"8", // Nombre de slides visibles
-            spaceBetween: 20, // Espace entre les slides
-            // Ajoutez d'autres options de configuration selon vos besoins
+            direction: 'horizontal', 
+            loop: true, 
+            slidesPerView:"8", 
+            spaceBetween: 20, 
         });
 
-        // Nettoyage lors du démontage du composant pour éviter les fuites de mémoire
         return () => {
             homeSwiper.destroy(true, true);
         };
-    }, []); // Utilisation d'un tableau vide pour s'assurer que useEffect s'exécute une seule fois après le montage initial
+    }, []); 
 
     return (
         <section className="home" id="home">

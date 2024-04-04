@@ -26,14 +26,14 @@ function DashBoard() {
         formData.append('prix', prix);
         formData.append('adresse', adresse);
         formData.append('date', date);
-        formData.append('heure', heure); // Ajout du champ heure
+        formData.append('heure', heure); 
         formData.append('nomEvent', titreEvent);
 
         fetch('http://localhost:8000/postEvents', {
             method: 'POST',
             body: formData,
             headers: {
-                'Authorization': 'Bearer token', // Ajoutez votre jeton d'authentification ici si nécessaire
+                'Authorization': 'Bearer token', 
             }
         })
         .then(response => {
@@ -44,7 +44,6 @@ function DashBoard() {
         })
         .then(data => {
             console.log('Événement créé avec succès:', data);
-            // Réinitialisez les champs du formulaire après la soumission réussie si nécessaire
             setFile(null);
             setPromoteur('');
             setLieu('');
@@ -57,8 +56,7 @@ function DashBoard() {
         })
         .catch(error => {
             console.log(error);
-            // console.error('Erreur lors de la création de l\'événement:', error.message);
-            // setError('Une erreur s\'est produite lors de la création de l\'événement.');
+            
         });
     };
 
@@ -73,7 +71,7 @@ function DashBoard() {
                 <input className="input-field-dash" type="text" value={prix} onChange={(e) => setPrix(e.target.value)} placeholder="Prix de billet" required />
                 <input className="input-field-dash" type="text" value={adresse} onChange={(e) => setAdresse(e.target.value)} placeholder="Adresse" required />
                 <input className="input-field-dash" type="text" value={date} onChange={(e) => setDate(e.target.value)} placeholder="Date" required />
-                <input className="input-field-dash" type="text" value={heure} onChange={(e) => setHeure(e.target.value)} placeholder="Heure" required /> {/* Champ heure */}
+                <input className="input-field-dash" type="text" value={heure} onChange={(e) => setHeure(e.target.value)} placeholder="Heure" required /> 
                 <input className="input-field-dash" type="text" value={titreEvent} onChange={(e) => setTitreEvent(e.target.value)} placeholder="Titre de l'événement" required />
                 <button type="submit">Soumettre</button>
             </form>

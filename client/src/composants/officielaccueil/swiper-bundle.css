@@ -6,18 +6,17 @@ body{
 
 .swiper-container {
     
-    width: 100%; /* La largeur du conteneur prend toute la largeur disponible */
-    height: auto; /* La hauteur est automatiquement ajustée en fonction du contenu */
+    width: 100%; 
+    height: auto; 
 }
 
-/* Style pour chaque slide */
+
 .swiper-slide {
    
-    width: 100%; /* Définit la largeur de chaque slide */
-    height: auto; /* Définit la hauteur de chaque slide */
+    width: 100%;
+    height: auto; 
 }
 
-/* Optionnel : si vous souhaitez centrer le contenu des slides horizontalement */
 .swiper-slide > * {
   
     margin: 0 auto;
@@ -48,7 +47,6 @@ body{
     gap:20px;
     width:100%;
     height: 33.3%;
-    /* background-color: aqua; */
   }
 
   .container-testimony-image{

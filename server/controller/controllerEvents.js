@@ -43,18 +43,15 @@ const EventsById=  async (req,res)=>{
       try {
           const { nomEvent, prix, adresse, promoName, date, lieu, heure } = req.body;
           
-          let image = ''; // Initialisez une variable pour stocker le chemin de l'image
+          let image = ''; 
           
-          // Vérifiez si req.file existe et qu'il contient les données du fichier téléchargé
           if (req.file) {
-              // Construisez l'URL complète de l'image en utilisant le protocole et le nom du fichier téléchargé
+              
               image = `${req.protocol}://${req.get('host')}/${req.file.filename}`;
           }
           
-          // Convertissez la date en format ISO 8601
           const dateIso8601 = new Date(date).toISOString();
   
-          // Créez un objet Evenements avec les données nécessaires
           const Evenements = {
               image,
               promoName,
@@ -65,16 +62,11 @@ const EventsById=  async (req,res)=>{
               nomEvent,
               heure
           };
-      
-          // Enregistrez l'événement dans la base de données
           await prisma.Event.create({
               data: Evenements
           });
-      
-          // Répondez avec un message de succès
           res.send(`${Evenements.nomEvent} a été créé avec succès comme événement`);
       } catch (error) {
-          // Si une erreur se produit, loggez-la et envoyez une réponse d'erreur appropriée
           console.log(error);
           res.status(500).send('Une erreur est survenue lors du traitement de votre demande');
       }

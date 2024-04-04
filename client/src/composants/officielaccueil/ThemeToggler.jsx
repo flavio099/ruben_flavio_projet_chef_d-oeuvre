@@ -42,14 +42,14 @@ function ThemeToggler() {
         const homeSwiper = new Swiper(".home-swiper", {
             direction: 'horizontal',
             loop: true,
-            slidesPerView: '8', // Nombre de slides visibles
+            slidesPerView: '8', 
             spaceBetween: 20,
         });
 
         const reviewSwiper = new Swiper(".review-swiper", {
             direction: 'horizontal',
             loop: false,
-            slidesPerView: '3', // Nombre de slides visibles
+            slidesPerView: '3',
             spaceBetween: 20,
         });
 

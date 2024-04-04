@@ -1,9 +1,9 @@
 import React from 'react';
-import './Paiement.css'; // Assuming your CSS file is named Paiement.css
+import './Paiement.css'; 
 
 const Paiement = () => {
   const handlePaymentMethodClick = (methodId) => {
-    // Implement your logic to handle method clicks here (e.g., toggle active state)
+   
     console.log('Clicked payment method:', methodId);
   };
 

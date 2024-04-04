@@ -13,7 +13,6 @@ const getallUsers=  async(req,res)=>{
    }
   catch(error){
      res.send(error)
-    // console.log(error);
   }
 }
 const getUsersById= async (req,res)=>{
